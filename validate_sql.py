@@ -46,7 +46,7 @@ def validate_sql_dump():
     # Final result
     print(f"\nРезультат валидации: {passed}/{total} проверок пройдено")
     
-    if passed == total and insert_count == 1140:
+    if passed == total and insert_count == 1139:
         print("🎉 SQL дамп прошел все проверки!")
         return True
     else:

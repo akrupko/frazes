@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Script to generate MySQL database from table_phrases.json
+Script to generate MySQL database from table_phrases_cleaned.json
 """
 
 import json
@@ -20,7 +20,7 @@ def generate_sql_dump():
     """Generate SQL dump file from JSON data"""
     
     # Read JSON data
-    with open('table_phrases.json', 'r', encoding='utf-8') as f:
+    with open('table_phrases_cleaned.json', 'r', encoding='utf-8') as f:
         data = json.load(f)
     
     phrases = data['phrases']
@@ -30,7 +30,7 @@ def generate_sql_dump():
     
     # Add header
     sql_content.append("-- MySQL dump for phraseological dictionary")
-    sql_content.append("-- Generated from table_phrases.json")
+    sql_content.append("-- Generated from table_phrases_cleaned.json (deduplicated)")
     sql_content.append(f"-- Total phrases: {len(phrases)}")
     sql_content.append("")
     sql_content.append("SET NAMES utf8mb4;")
@@ -106,11 +106,11 @@ def main():
     print()
 
 if __name__ == "__main__":
-    print("Generating MySQL database from table_phrases.json...")
+    print("Generating MySQL database from table_phrases_cleaned.json (deduplicated)...")
     
     # Check if JSON file exists
-    if not os.path.exists('table_phrases.json'):
-        print("Error: table_phrases.json not found!")
+    if not os.path.exists('table_phrases_cleaned.json'):
+        print("Error: table_phrases_cleaned.json not found!")
         sys.exit(1)
     
     # Generate SQL dump

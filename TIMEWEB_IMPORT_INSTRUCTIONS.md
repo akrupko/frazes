@@ -2,7 +2,7 @@
 
 ## Обзор
 
-База данных содержит 1,140 русских фразеологизмов со следующими полями:
+База данных содержит 1,139 русских фразеологизмов (после удаления дубликатов) со следующими полями:
 - `id` - уникальный идентификатор
 - `phrase` - фразеологизм
 - `meaning` - значение фразеологизма
@@ -13,6 +13,7 @@
 
 ## Файлы
 
+- `table_phrases_cleaned.json` - очищенный JSON файл (1139 фразеологизмов)
 - `phraseological_dict.sql` - SQL дамп базы данных
 - `create_mysql_db.py` - Python скрипт для генерации SQL дампа
 
@@ -151,6 +152,7 @@ SELECT phrase, etymology FROM phraseological_dict WHERE etymology IS NOT NULL LI
    ```bash
    python3 create_mysql_db.py
    ```
+   Скрипт использует очищенный файл `table_phrases_cleaned.json` (1139 записей)
 
 Это создаст новый файл `phraseological_dict.sql` с актуальными данными.
 
